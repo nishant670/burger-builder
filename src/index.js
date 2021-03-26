@@ -14,7 +14,7 @@ import burgerReducer from './store/reducers/burgerBuilderReducer';
 import orderReducer from './store/reducers/orderReducer';
 import authReducer from './store/reducers/auth';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = (process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null) || compose;
 
 const rootReducer = combineReducers({
     burgerBuilder : burgerReducer,
@@ -26,7 +26,7 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 const app = (
     <Provider store={store}>
-        <BrowserRouter>
+        <BrowserRouter basename="/luvingtales/">
             <App />
             </BrowserRouter>
     </Provider>

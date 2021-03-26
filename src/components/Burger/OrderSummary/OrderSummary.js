@@ -4,10 +4,6 @@ import Aux from '../../../hoc/Auxiliary/Auxiliary';
 
  class OrderSummary extends Component{
 
-    // componentWillUpdate(){
-    //     console.log('[OrderSummary] willUpdtae');
-    // }
-
      render(){
 
         const ingredientSummary = Object.keys(this.props.ingredients)
